@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Hashtable;
 using System.Linq;
 using System.Text;
 
@@ -39,29 +40,43 @@ namespace Model
 
     public class MovieRepository : IMovieRepository
     {
+        // Dictionary object to store all the movies in memory
+        public Dictionary<int, IMovie> _movies = new Dictionary<int, IMovie>();
+
+        // Adds a movie, uses ID as key in the dictionary object
         public void Add(IMovie movie)
         {
-            throw new NotImplementedException();
+            _movies.Add(movie.ID, movie);
         }
 
+        // Returns the movies in the Dictionary
         public IEnumerable<IMovie> GetAll()
         {
-            throw new NotImplementedException();
+            return _movies.Values;
         }
 
+        // Gets movies by id, throws exception if no movie is in the Dictionary
         public IMovie GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _movies[id];
         }
 
+        // Loop through movies and return the first match
         public IMovie GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            foreach (IMovie movie in _movies.Values)
+            {
+                if (movie.Title.Equals(title))
+                {
+                    return movie;
+                }
+            }
+            return null; // no movie found
         }
 
         public void Remove(IMovie movie)
         {
-            throw new NotImplementedException();
+            _movies.Remove(movie.ID); // removes movie entry by ID
         }
     }
 
