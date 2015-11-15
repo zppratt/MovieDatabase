@@ -74,9 +74,10 @@ namespace Model
             return null; // no movie found
         }
 
+        // Removes movie entry by ID
         public void Remove(IMovie movie)
         {
-            _movies.Remove(movie.ID); // removes movie entry by ID
+            _movies.Remove(movie.ID);
         }
     }
 
