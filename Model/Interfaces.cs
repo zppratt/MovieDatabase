@@ -11,6 +11,20 @@ namespace Model
         string _synopsis;
         string _title;
         int _year;
+        
+        public Movie()
+        {
+
+        }
+
+        public Movie(string title, string synopsis, int year)
+        {
+            Random r = new Random();
+            this.ID = this.GetHashCode();
+            this.Synopsis = synopsis;
+            this.Title = title;
+            this.Year = year;
+        }
 
         public int ID
         {
@@ -40,12 +54,19 @@ namespace Model
     public class MovieRepository : IMovieRepository
     {
         // Dictionary object to store all the movies in memory
-        public Dictionary<int, IMovie> _movies = new Dictionary<int, IMovie>();
+        Dictionary<int, IMovie> _movies = new Dictionary<int, IMovie>();
 
         // Adds a movie, uses ID as key in the dictionary object
         public void Add(IMovie movie)
         {
-            _movies.Add(movie.ID, movie);
+            try {
+                _movies.Add(movie.ID, movie);
+            }
+            catch
+            {
+                movie.ID++;
+                _movies.Add(movie.ID, movie);
+            }
         }
 
         // Returns the movies in the Dictionary
