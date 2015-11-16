@@ -24,7 +24,6 @@ namespace ConsoleApplication
             
             while (true)
             {
-                Console.WriteLine();
                 listMovies();
                 String input = getInput();
                 if (input.Equals("a", StringComparison.InvariantCultureIgnoreCase))
@@ -49,9 +48,13 @@ namespace ConsoleApplication
             Console.WriteLine();
             if (int.TryParse(input, out i))
             {
-                Console.WriteLine("You entered a number.");
-            } else {
-                Console.WriteLine("You entered a string.");
+                string title = repo.GetByID(i).Title;
+                repo.Remove(repo.GetByID(i));
+                Console.WriteLine("'" + title +"' removed.");
+            }
+            else {
+                repo.Remove(repo.GetByTitle(input));
+                Console.WriteLine("'" + input + "' removed.");
             }
         }
 
@@ -67,10 +70,17 @@ namespace ConsoleApplication
             movie.Synopsis = getInput();
             Console.WriteLine();
             Console.WriteLine("What year was the movie made?");
-            movie.Year = int.Parse(getInput());
+            try {
+                movie.Year = int.Parse(getInput());
+            }
+            catch
+            {
+                movie.Year = 0;
+            }
             repo.Add(movie);
             Console.WriteLine();
-            Console.WriteLine("Movie entered. ID is: " + repo.GetByTitle(movie.Title).ID); // echos movie ID for reference and confirmation
+            // Echos movie ID for reference and confirmation
+            Console.WriteLine("'" + movie.Title + "' added. ID is: " + repo.GetByTitle(movie.Title).ID);
         }
 
         private static String getInput()

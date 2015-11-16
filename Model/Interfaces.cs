@@ -19,7 +19,6 @@ namespace Model
 
         public Movie(string title, string synopsis, int year)
         {
-            Random r = new Random();
             this.ID = this.GetHashCode();
             this.Synopsis = synopsis;
             this.Title = title;
