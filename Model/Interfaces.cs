@@ -77,7 +77,13 @@ namespace Model
         // Gets movies by id, throws exception if no movie is in the Dictionary
         public IMovie GetByID(int id)
         {
-            return _movies[id];
+            try {
+                return _movies[id];
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         // Loop through movies and return the first match

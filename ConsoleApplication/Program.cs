@@ -48,10 +48,17 @@ namespace ConsoleApplication
             Console.WriteLine();
             if (int.TryParse(input, out i))
             {
-                string title = repo.GetByID(i).Title;
-                repo.Remove(repo.GetByID(i));
-                Console.WriteLine("'" + title +"' removed.");
-            }
+                try
+                {
+                    string title = repo.GetByID(i).Title;
+                    repo.Remove(repo.GetByID(i));
+                    Console.WriteLine("'" + title + "' removed.");
+                }
+                catch
+                {
+                    Console.WriteLine("Nothing removed.");
+                }
+                }
             else {
                 repo.Remove(repo.GetByTitle(input));
                 Console.WriteLine("'" + input + "' removed.");

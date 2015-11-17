@@ -3,6 +3,6 @@ C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Debug\ConsoleApplication.
 C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
 C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Debug\Model.dll
 C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Debug\Model.pdb
-C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
 C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Debug\ConsoleApplication.exe
 C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
+C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
