@@ -1,2 +1,0 @@
-# MovieDatabase
-Project 3
