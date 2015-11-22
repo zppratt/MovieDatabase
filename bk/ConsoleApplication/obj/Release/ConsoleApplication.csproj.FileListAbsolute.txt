@@ -1,0 +1,8 @@
+C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Release\ConsoleApplication.exe.config
+C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Release\ConsoleApplication.csprojResolveAssemblyReference.cache
+C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Release\ConsoleApplication.exe
+C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Release\ConsoleApplication.pdb
+C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Release\Model.dll
+C:\Users\User\git\MovieDatabase\ConsoleApplication\bin\Release\Model.pdb
+C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Release\ConsoleApplication.exe
+C:\Users\User\git\MovieDatabase\ConsoleApplication\obj\Release\ConsoleApplication.pdb
