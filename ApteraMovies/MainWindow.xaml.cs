@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
+using System.Collections;
 
 namespace ApteraMovies
 {
@@ -31,13 +32,17 @@ namespace ApteraMovies
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+            listBox.Items.IsLiveSorting = true;
+
             repo = new MovieRepository();
 
-            repo.Add(new Movie("asdf", "asdf", 1987));
-            repo.Add(new Movie("afsddfsa", "asdf", 1985));
-            repo.Add(new Movie("afsdsfddfsadsafsdfa", "asdf", 1984));
+            repo.Add(new Movie("The Godfather", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son. (175 mins.)", 1972));
+            repo.Add(new Movie("The Shawshank Redemption", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency. (142 mins.)", 1994));
+            repo.Add(new Movie("Schindler's List", "In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis. (195 mins.)", 1993));
+            repo.Add(new Movie("Raging Bull", "An emotionally self-destructive boxer's journey through life, as the violence and temper that leads him to the top in the ring, destroys his life outside it. (129 mins.)", 1980));
+            repo.Add(new Movie("Casablanca", "Set in Casablanca, Morocco during the early days of World War II: An American expatriate meets a former lover, with unforeseen complications. (102 mins.)", 1942));
 
-            //listBox.DisplayMemberPath = "ToString";
             listBox.ItemsSource = repo.GetAll();
 
         }
@@ -66,7 +71,27 @@ namespace ApteraMovies
             if (listBox.SelectedItem != null) {
                 repo.Remove((IMovie)listBox.SelectedItem);
             }
+
             listBox.Items.Refresh();
+
         }
+
+        private void refreshList()
+        {
+            System.Collections.SortedList sorted = new SortedList();
+
+            foreach (ListItem ll in listBox.Items)
+            {
+                sorted.Add(ll.ID, ll.Value);
+            }
+
+            listBox.Items.Clear();
+
+            foreach (String key in sorted.Keys)
+            {
+                listBox.Items.Add(new ListItem(key, sorted[key].ToString()));
+            }
+        }
+
     }
 }
