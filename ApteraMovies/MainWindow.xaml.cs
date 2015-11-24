@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
 
 namespace ApteraMovies
 {
@@ -20,6 +21,9 @@ namespace ApteraMovies
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        MovieRepository repo;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,24 +31,24 @@ namespace ApteraMovies
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            repo = new MovieRepository();
 
-            System.Windows.Data.CollectionViewSource movieViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("movieViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // movieViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource movieRepositoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("movieRepositoryViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // movieRepositoryViewSource.Source = [generic data source]
+            repo.Add(new Movie("asdf", "asdf", 1987));
+            repo.Add(new Movie("afsddfsa", "asdf", 1985));
+            repo.Add(new Movie("afsdsfddfsadsafsdfa", "asdf", 1984));
+
+            listBox.ItemsSource = repo.GetAll();
+
         }
 
-        private void addMovie()
+        private void addMovie(object sender, RoutedEventArgs e)
         {
             
         }
 
-        private void removeMovie()
+        private void removeMovie(object sender, RoutedEventArgs e)
         {
 
         }
-
     }
 }

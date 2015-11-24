@@ -7,23 +7,18 @@
         xmlns:Model="clr-namespace:Model;assembly=Model" x:Class="ApteraMovies.MainWindow"
         mc:Ignorable="d"
         Title="Movie Database" Height="350" Width="525" Loaded="Window_Loaded">
-    <Window.Resources>
-        <CollectionViewSource x:Key="movieViewSource" d:DesignSource="{d:DesignInstance {x:Type Model:Movie}, CreateList=True}"/>
-        <CollectionViewSource x:Key="movieRepositoryViewSource" d:DesignSource="{d:DesignInstance {x:Type Model:MovieRepository}, CreateList=True}"/>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource movieViewSource}">
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="250" Margin="303,20,0,0" VerticalAlignment="Top" Width="169" ItemsSource="{Binding Source={StaticResource movieRepositoryViewSource}}" SelectedValue="{Binding Title}" BorderThickness="2"/>
+    <Grid>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="250" Margin="303,20,0,0" VerticalAlignment="Top" Width="169" BorderThickness="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="218" Margin="18,20,0,0" Stroke="Black" VerticalAlignment="Top" Width="269"/>
 
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="93,66,0,0" TextWrapping="Wrap" Text="{Binding Synopsis, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="93,101,0,0" TextWrapping="Wrap" Text="{Binding Title, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="93,136,0,0" TextWrapping="Wrap" Text="{Binding Year, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Synopsis" HorizontalAlignment="Left" Margin="32,63,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Title" HorizontalAlignment="Left" Margin="32,98,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="Year" HorizontalAlignment="Left" Margin="32,133,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy2" Content="Add a movie" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="93,175,0,0" VerticalAlignment="Top" Width="75" Click="addMovie"/>
-        <Button x:Name="button_Copy" Content="Remove &gt;" HorizontalAlignment="Left" Margin="212,250,0,0" VerticalAlignment="Top" Width="75" Click="removeMovie"/>
-
+        <TextBox x:Name="synopsisText" HorizontalAlignment="Left" Height="23" Margin="93,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="titleText" HorizontalAlignment="Left" Height="23" Margin="93,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="yearText" HorizontalAlignment="Left" Height="23" Margin="93,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="synopsisLabel" Content="Synopsis" HorizontalAlignment="Left" Margin="32,63,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="titleLabel" Content="Title" HorizontalAlignment="Left" Margin="32,98,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="yearLabel" Content="Year" HorizontalAlignment="Left" Margin="32,133,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="addAMovieTitle" Content="Add a movie" HorizontalAlignment="Left" Margin="32,27,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="addMovieButton" Content="Add" HorizontalAlignment="Left" Margin="93,175,0,0" VerticalAlignment="Top" Width="75" Click="addMovie"/>
+        <Button x:Name="removeMovieButton" Content="Remove &gt;" HorizontalAlignment="Left" Margin="212,250,0,0" VerticalAlignment="Top" Width="75" Click="removeMovie"/>
     </Grid>
 </Window>
