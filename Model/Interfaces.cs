@@ -48,6 +48,14 @@ namespace Model
             get { return _year; }
             set { _year = value; }
         }
+
+        public override string ToString()
+        {
+            return "Title: " + _title + "\n" +
+            "Synopsis: " + _synopsis + "\n" +
+            "Year: " + _year + "\n";
+        }
+
     }
 
     public class MovieRepository : IMovieRepository
@@ -59,6 +67,7 @@ namespace Model
         public void Add(IMovie movie)
         {
             try {
+                movie.ID = movie.GetHashCode();
                 _movies.Add(movie.ID, movie);
             }
             catch

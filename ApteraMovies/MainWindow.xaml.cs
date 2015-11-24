@@ -37,18 +37,36 @@ namespace ApteraMovies
             repo.Add(new Movie("afsddfsa", "asdf", 1985));
             repo.Add(new Movie("afsdsfddfsadsafsdfa", "asdf", 1984));
 
+            //listBox.DisplayMemberPath = "ToString";
             listBox.ItemsSource = repo.GetAll();
 
         }
 
         private void addMovie(object sender, RoutedEventArgs e)
         {
-            
+            Movie movie = new Movie();
+            movie.Title = titleText.Text;
+            movie.Synopsis = synopsisText.Text;
+            int year;
+            if (int.TryParse(yearText.Text, out year)) {
+                movie.Year = year;
+            } else
+            {
+                movie.Year = 0;
+            }
+
+            repo.Add(movie);
+
+            listBox.Items.Refresh();
+
         }
 
         private void removeMovie(object sender, RoutedEventArgs e)
         {
-
+            if (listBox.SelectedItem != null) {
+                repo.Remove((IMovie)listBox.SelectedItem);
+            }
+            listBox.Items.Refresh();
         }
     }
 }
