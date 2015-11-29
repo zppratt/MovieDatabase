@@ -40,8 +40,17 @@ namespace ApteraMovies
             repo.Add(new Movie("Raging Bull", "An emotionally self-destructive boxer's journey through life, as the violence and temper that leads him to the top in the ring, destroys his life outside it. (129 mins.)", 1980));
             repo.Add(new Movie("Casablanca", "Set in Casablanca, Morocco during the early days of World War II: An American expatriate meets a former lover, with unforeseen complications. (102 mins.)", 1942));
 
-            listBox.ItemsSource = repo.GetAll();
+            refreshListBox();
 
+        }
+
+        private void refreshListBox()
+        {
+            listBox.Items.Clear();
+            foreach (Movie m in repo.GetAll().OrderByDescending(movie => movie.Year))
+            {
+                listBox.Items.Add(m);
+            }
         }
 
         private void addMovie(object sender, RoutedEventArgs e)
@@ -59,7 +68,7 @@ namespace ApteraMovies
 
             repo.Add(movie);
 
-            listBox.Items.Refresh();
+            refreshListBox();
 
         }
 
@@ -69,7 +78,7 @@ namespace ApteraMovies
                 repo.Remove((IMovie)listBox.SelectedItem);
             }
 
-            listBox.Items.Refresh();
+            refreshListBox();
 
         }
 
