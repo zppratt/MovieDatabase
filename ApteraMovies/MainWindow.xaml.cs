@@ -32,9 +32,6 @@ namespace ApteraMovies
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            listBox.Items.IsLiveSorting = true;
-
             repo = new MovieRepository();
 
             repo.Add(new Movie("The Godfather", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son. (175 mins.)", 1972));
@@ -74,23 +71,6 @@ namespace ApteraMovies
 
             listBox.Items.Refresh();
 
-        }
-
-        private void refreshList()
-        {
-            System.Collections.SortedList sorted = new SortedList();
-
-            foreach (ListItem ll in listBox.Items)
-            {
-                sorted.Add(ll.ID, ll.Value);
-            }
-
-            listBox.Items.Clear();
-
-            foreach (String key in sorted.Keys)
-            {
-                listBox.Items.Add(new ListItem(key, sorted[key].ToString()));
-            }
         }
 
     }
