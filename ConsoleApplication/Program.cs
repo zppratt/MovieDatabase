@@ -60,8 +60,14 @@ namespace ConsoleApplication
                 }
                 }
             else {
-                repo.Remove(repo.GetByTitle(input));
-                Console.WriteLine("'" + input + "' removed.");
+                try {
+                    repo.Remove(repo.GetByTitle(input));
+                    Console.WriteLine("'" + input + "' removed.");
+                }
+                catch
+                {
+                    Console.WriteLine("Could not find the movie.");
+                }
             }
         }
 
@@ -93,7 +99,7 @@ namespace ConsoleApplication
         private static String getInput()
         {
             Console.WriteLine();
-            Console.Write("Enter input:");
+            Console.Write("Enter input (a,r,q): ");
             string input = Console.ReadLine();
             if (input.Equals("q", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -107,9 +113,9 @@ namespace ConsoleApplication
         private static void listMovies()
         {
             Console.WriteLine();
-            foreach (Movie movie in repo.GetAll())
+            foreach (Movie movie in repo.GetAll().OrderByDescending(x=>x.Year))
             {
-                Console.WriteLine(movie.Title);
+                Console.WriteLine(movie);
             }
         }
     }

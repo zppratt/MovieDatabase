@@ -112,7 +112,7 @@ namespace Model
         // Removes movie entry by ID
         public void Remove(IMovie movie)
         {
-            _movies.Remove(movie.ID);
+            _movies.Remove(movie.ID);            
         }
     }
 

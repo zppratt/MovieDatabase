@@ -1,4 +1,0 @@
-C:\Users\User\git\MovieDatabase\Model\bin\Release\Model.dll
-C:\Users\User\git\MovieDatabase\Model\bin\Release\Model.pdb
-C:\Users\User\git\MovieDatabase\Model\obj\Release\Model.dll
-C:\Users\User\git\MovieDatabase\Model\obj\Release\Model.pdb
