@@ -14,14 +14,12 @@ namespace ConsoleApplication
 
         static void Main(string[] args)
         {
-            Movie mov1 = new Movie("The greatest movie ever.", "Just sooo great.", 1934);
-            Movie mov2 = new Movie("Ooo its a movie", "Also a great movie.", 1950);
-            Movie mov3 = new Movie("Movie3", "Just an okay movie", 1980);
+            repo.Add(new Movie("The Godfather", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son. (175 mins.)", 1972));
+            repo.Add(new Movie("The Shawshank Redemption", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency. (142 mins.)", 1994));
+            repo.Add(new Movie("Schindler's List", "In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis. (195 mins.)", 1993));
+            repo.Add(new Movie("Raging Bull", "An emotionally self-destructive boxer's journey through life, as the violence and temper that leads him to the top in the ring, destroys his life outside it. (129 mins.)", 1980));
+            repo.Add(new Movie("Casablanca", "Set in Casablanca, Morocco during the early days of World War II: An American expatriate meets a former lover, with unforeseen complications. (102 mins.)", 1942));
 
-            repo.Add(mov1);
-            repo.Add(mov2);
-            repo.Add(mov3);
-            
             while (true)
             {
                 listMovies();
