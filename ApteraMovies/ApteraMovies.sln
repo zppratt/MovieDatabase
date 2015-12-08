@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteraMovies", "ApteraMovies.csproj", "{84A7EF69-A1E2-451F-B0ED-BB454B8EB5D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EF1A181B-CCC2-4F57-8DE1-C4CC6BF8FBFC} = {EF1A181B-CCC2-4F57-8DE1-C4CC6BF8FBFC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{EF1A181B-CCC2-4F57-8DE1-C4CC6BF8FBFC}"
 EndProject

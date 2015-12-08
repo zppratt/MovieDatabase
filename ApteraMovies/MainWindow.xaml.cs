@@ -72,10 +72,20 @@ namespace ApteraMovies
 
         }
 
+        /**
+        * Removes the selected movie or last movie added if none are selected.
+        */
         private void removeMovie(object sender, RoutedEventArgs e)
         {
             if (listBox.SelectedItem != null) {
                 repo.Remove((IMovie)listBox.SelectedItem);
+            }
+            else
+            {
+                if (repo.Size() > 0)
+                {
+                    repo.Remove(repo.GetByID(repo.Size() - 1));
+                }
             }
 
             refreshListBox();

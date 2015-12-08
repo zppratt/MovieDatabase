@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 namespace Model
-{
+{ 
     public class Movie : IMovie
     {
         int _id;
@@ -68,7 +68,7 @@ namespace Model
         public void Add(IMovie movie)
         {
             try {
-                movie.ID = movie.GetHashCode();
+                movie.ID = Size();
                 _movies.Add(movie.ID, movie);
             }
             catch
@@ -81,7 +81,7 @@ namespace Model
         // Returns the movies in the Dictionary
         public IEnumerable<IMovie> GetAll()
         {
-            return _movies.Values;
+            return _movies.Values.OrderByDescending(x=>x.Year);
         }
 
         // Gets movies by id, throws exception if no movie is in the Dictionary
@@ -114,6 +114,12 @@ namespace Model
         {
             _movies.Remove(movie.ID);            
         }
+
+        public int Size()
+        {
+            return _movies.ToArray().Length;
+        }
+
     }
 
     public interface IMovie
