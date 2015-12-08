@@ -47,7 +47,7 @@ namespace ApteraMovies
         private void refreshListBox()
         {
             listBox.Items.Clear();
-            foreach (Movie m in repo.GetAll().OrderByDescending(movie => movie.Year))
+            foreach (Movie m in repo.GetAll())
             {
                 listBox.Items.Add(m);
             }
